@@ -1,0 +1,21 @@
+
+<div *ngIf="data">
+  <h3 mat-dialog-title> {{data.name}} details are:</h3>
+  <div>
+  <mat-dialog-content>
+    <p>Claim Id:   {{data.claim_id}} </p>
+    <p>Company Name: {{data.name}}</p>
+    <p>Date of Creation: {{data.date}}</p>
+    <p>Status:  {{data.status}}</p>
+  </mat-dialog-content>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</div>
+<div *ngIf="!data">
+  <p style="color:#0077B5;font-size:1em">Your Request Submitted Successfully</p>
+  <div align="center" mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">OK</button>
+  </div>
+</div>

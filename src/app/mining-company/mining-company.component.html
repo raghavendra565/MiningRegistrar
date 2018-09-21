@@ -1,0 +1,58 @@
+<div class="header">
+  <div style="float:left;font-size:2.2em;padding-left:0.5em;">MINING COMPANY</div>
+  <div style="float:right;margin-right:5%">
+    <a routerLink="/homepage">
+      <button class="smallbutton">Home</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </a>
+    <a routerLink="/homepage">
+      <button class="smallbutton">Logout</button>
+    </a>
+  </div>
+</div>
+<br>
+<div style="padding-left:70%;margin-bottom:2em">
+  <a routerLink="/new-request-form"><button class="smallbutton">New Request</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a routerLink=""><button class="smallbutton">Transfer Request</button></a>
+</div>
+<div>
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Created</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{row.date | date}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="claim_id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Claim Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.claim_id}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="for_button">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell (click)="selectRow(element)" *matCellDef="let element">
+      <button mat-raised-button style="height:2em;border-radius: 1em;background-color: #0077B5;color:white;">View</button>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>
+
+<!-- <div style="overflow:auto">
+  <div style="float:right ;font-size:2em; padding-right:0.5em">
+    <a>
+      <button>New Request</button>&nbsp;&nbsp;&nbsp;
+    </a>
+  </div>
+  <div style="float:right;">
+    <a>
+      <button>Transfer Request</button>&nbsp;&nbsp;
+    </a>
+  </div>
+</div> -->

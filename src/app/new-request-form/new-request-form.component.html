@@ -1,0 +1,59 @@
+<div style="margin-bottom:3em">
+  <a routerLink="/mining-company" style="float:right">
+    <button class="smallbutton" style="margin-right:8em">Back</button>
+  </a>
+  <h2 style="color:#0077B5; text-align:center;">Claim Request Form</h2>
+</div>
+<div style="margin:auto;margin-right:30%;margin-left:30%;">
+  <form [formGroup]="newRequestForm" (ngSubmit)="onSubmit()">
+    <div class="requestForm">
+      <label>Land CoOrdinates <span>*</span><br>
+        <input type="text" formControlName="cord" [ngClass]="{'is-invalid': submitted && f.cord.errors}" />
+        <div *ngIf="submitted && f.cord.errors">
+          <div *ngIf="f.cord.errors.required" class="error">Land CoOrdinates is required</div>
+        </div>
+      </label>
+    </div>
+    <div class="requestForm">
+      <label>Ore <span>*</span><br>
+        <input type="text" formControlName="ore" [ngClass]="{'is-invalid': submitted && f.ore.errors}" />
+        <div *ngIf="submitted && f.ore.errors">
+          <div *ngIf="f.ore.errors.required" class="error">Type of Ore is required</div>
+        </div>
+      </label>
+    </div>
+    <div class="requestForm">
+      <label>Start Date <span>*</span><br>
+        <input type="date" formControlName="start_time" [ngClass]="{'is-invalid': submitted && f.start_time.errors}" />
+        <div *ngIf="submitted && f.start_time.errors">
+          <div *ngIf="f.start_time.errors.required" class="error">Start Date is required</div>
+        </div>
+      </label>
+    </div>
+    <div class="requestForm">
+      <label>End Date <span>*</span><br>
+        <input type="date" formControlName="end_time" [ngClass]="{'is-invalid': submitted && f.end_time.errors}" />
+        <div *ngIf="submitted && f.end_time.errors">
+          <div *ngIf="f.end_time.errors.required" class="error">End Date is required</div>
+        </div>
+      </label>
+    </div>
+    <div class="requestForm">
+      <label>Company Name <span>*</span><br>
+        <input type="text" placeholder="" formControlName="comp_name" [ngClass]="{'is-invalid': submitted && f.comp_name.errors}" />
+        <div *ngIf="submitted && f.comp_name.errors">
+          <div *ngIf="f.comp_name.errors.required" class="error">Company name is required</div>
+        </div>
+      </label>
+    </div>
+    <div class="requestForm">
+      <label>Value in $/cubicmeter <span>*</span><br>
+        <input type="number" placeholder="" formControlName="value" [ngClass]="{'is-invalid': submitted && f.value.errors}" />
+        <div *ngIf="submitted && f.value.errors">
+          <div *ngIf="f.value.errors.required" class="error">Value is required</div>
+        </div>
+      </label>
+    </div>
+    <button mat-raised-button>Submit</button>
+  </form>
+</div>
