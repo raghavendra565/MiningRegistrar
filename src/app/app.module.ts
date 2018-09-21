@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSortModule} from '@angular/material/sort';
 import { NewRequestFormComponent } from './new-request-form/new-request-form.component';
+import { HttpModule }    from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NewRequestFormComponent } from './new-request-form/new-request-form.com
     MatInputModule,
     MatFormFieldModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent],
